@@ -28,7 +28,7 @@ const AllCourses = () => {
 
   const genReport = async () => {
     try {
-      const res = await axios.get("http://localhost:8070/course/reporting", {
+      const res = await axios.get("http://localhost:8090/course/reporting", {
         responseType: 'blob', // Important: set the response type to "blob"
       });
       const url = window.URL.createObjectURL(res.data);
@@ -49,7 +49,7 @@ const AllCourses = () => {
   }
 
   useEffect(() => {
-    axios.get('http://localhost:8070/course/').then((res) => {
+    axios.get('http://localhost:8090/course/').then((res) => {
       setCourses(res.data);
     }).catch((err) => {
       alert(err.message);
@@ -69,7 +69,7 @@ const AllCourses = () => {
 
 
   const deleteCourse = (id) => {
-    axios.delete(`http://localhost:8070/course/delete/${id}`).then((res) => {
+    axios.delete(`http://localhost:8090/course/delete/${id}`).then((res) => {
       alert(res.data);
       setCourses(courses.filter((course) => course.courseID !== id));
     }).catch((err) => {

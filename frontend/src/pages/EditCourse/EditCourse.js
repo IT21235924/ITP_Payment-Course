@@ -20,7 +20,7 @@ const EditCourse = () => {
     const [fee, setFee] = useState('');
 
     useEffect(() => {
-        axios.get(`http://localhost:8070/course/${courseID}`).then((res) => {
+        axios.get(`http://localhost:8090/course/${courseID}`).then((res) => {
             setCourse(res.data);
             setCourseName(res.data.courseName);
             setTeacherName(res.data.teacherName);
@@ -45,7 +45,7 @@ const EditCourse = () => {
             timeDuration,
             fee,
         };
-        axios.put(`http://localhost:8070/course/update/${courseID}`, updatedCourse).then((res) => {
+        axios.put(`http://localhost:8090/course/update/${courseID}`, updatedCourse).then((res) => {
             alert(res.data);
         }).catch((err) => {
             alert(err.message);

@@ -25,7 +25,7 @@ const WatchCourses = () => {
 
 
     useEffect(() => {
-        axios.get('http://localhost:8070/course/').then((res) => {
+        axios.get('http://localhost:8090/course/').then((res) => {
             setCourses(res.data);
         }).catch((err) => {
             alert(err.message);
